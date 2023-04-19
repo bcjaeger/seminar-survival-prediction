@@ -1893,7 +1893,7 @@ lm(data = bm_scores,
 
 ---
 
-Just a mean?
+Just use the mean?
 
 ```{r, echo=TRUE}
 

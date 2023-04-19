@@ -775,7 +775,7 @@ pd_plot &lt;- ggplot(pd_bili_sex) +
   geom_line() + 
   labs(
     y = 'Expected predicted risk',
-    title = "5-year risk as a function bilirubin by sex."
+    title = "5-year risk by bilirubin and sex."
   )
 
 # plot shown on next slide for space
@@ -790,7 +790,7 @@ pd_plot &lt;- ggplot(pd_bili_sex) +
 
 Your turn: 
 
-1. Does the expected predicted risk as a function bilirubin depend on edema?
+1. Does the relationship of predicted risk and bilirubin vary by edema?
 
 1. Use `coxph` to verify your findings:
 
@@ -981,7 +981,7 @@ lm(data = bm_scores,
 
 ---
 
-Just a mean?
+Just use the mean?
 
 
 ```r
