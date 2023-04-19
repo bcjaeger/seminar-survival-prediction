@@ -1688,7 +1688,7 @@ Your turn:
 
 1. Use `coxph` to verify your findings:
 
-```{r, eval = FALSE}
+```{r, eval = FALSE, echo=TRUE}
 
 # hints:
 
@@ -1739,23 +1739,13 @@ p1 + p2
 
 ```
 
-
 ---
 
-```{r, echo=TRUE}
-
-  orsf_vi_negate(fit_orsf) %>% 
-  enframe(name = 'predictor', value = 'importance') %>% 
-  slice(1:10)
-
-```
-
----
-
-Assess time-varying association between sex and survival
+Another interesting use of partial dependence is to assess time-varying associations.
 
 ```{r, echo = TRUE, fig.height=4}
 
+# note the use of many different pred_horizon values
 pd_tv <- orsf_pd_oob(fit_orsf, 
                      pred_spec = list(sex = c("m", "f")),
                      pred_horizon = seq(365, 365*5))
@@ -1766,6 +1756,18 @@ ggplot(pd_tv, aes(x = pred_horizon, y = mean, color = sex)) +
 
 ```
 
+
+---
+
+Just a slide to show how one would pull out variable importance estimates
+
+```{r, echo=TRUE}
+
+orsf_vi_negate(fit_orsf) %>% 
+  enframe(name = 'predictor', value = 'importance') %>% 
+  slice(1:10)
+
+```
 
 ---
 layout: true
